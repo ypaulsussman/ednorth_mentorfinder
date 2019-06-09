@@ -8,18 +8,29 @@
   
   <br/>
   
-  <%= f.label :bio_or_need_help_or_interested_in_cont, "Interests" %>
-  <%= f.search_field :bio_or_need_help_or_interested_in_cont %>
+  <%= f.label :need_help_or_interested_in_cont, "People who need help with:" %>
+  <%= f.search_field :need_help_or_interested_in_cont %>
 
   <br/>
 
-  <%= f.submit %>
+  <%= f.label :bio_or_can_help_cont, "People who can help with:" %>
+  <%= f.search_field :bio_or_can_help_cont %>
+
+  <br/>
+
+<%= f.submit %>
 <% end %>
 
 <hr>
 
 <div id="colleagues">
   <% @people.each do |person| %>
-    <p><%= person.last_name %>, <%= person.first_name %></p>
+    <p><strong>Name:</strong> <%= person.last_name %>, <%= person.first_name %></p>
+    <p><strong>Email:</strong> <%= person.email %></p>
+    <p><strong>Bio:</strong> <%= person.bio %></p>
+    <p><strong>Can Help With:</strong> <%= person.can_help %></p>
+    <p><strong>Needs Help With:</strong> <%= person.need_help %></p>
+    <p><strong>Wants to Learn More About:</strong> <%= person.interested_in %></p>
+    <br/>
   <% end %>
 </div>
