@@ -16,9 +16,16 @@
 
     <% if user_signed_in? %>
       <div>
-        <p> 
-          <%= link_to "Edit #{current_user.first_name} #{current_user.last_name}", edit_user_registration_path %>
-        </p> 
+        <%unless current_page?("/colleagues")%>
+          <p> 
+            <%= link_to "Find Colleagues", colleagues_path %>
+          </p> 
+        <% end %>
+        <%unless current_page?("/users/edit")%>
+          <p> 
+            <%= link_to "Edit #{current_user.first_name} #{current_user.last_name}", edit_user_registration_path %>
+          </p> 
+        <% end %>
         <p>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         </p> 

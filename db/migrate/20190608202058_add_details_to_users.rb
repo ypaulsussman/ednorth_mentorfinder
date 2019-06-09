@@ -6,6 +6,6 @@ class AddDetailsToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :can_help, :string
     add_column :users, :need_help, :string
     add_column :users, :interested_in, :string
-    add_column :users, :admin, :boolean
+    add_column :users, :admin, :boolean, default: false
   end
 end
