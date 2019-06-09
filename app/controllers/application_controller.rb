@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   PERMITTED_CREATE_KEYS = %i(first_name last_name)
 
   def search_colleagues
-    @foo = 'suuuup'
+    @q = User.ransack(params[:q])
+    @people = @q.result(distinct: true)
   end
 
   protected

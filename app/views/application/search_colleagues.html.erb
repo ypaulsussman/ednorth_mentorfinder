@@ -1,3 +1,25 @@
-<p>
-sup yo it's <%= @foo%>
-</p>
+<h1>sup yo it's the search page</h1>
+
+<hr>
+
+<%= search_form_for @q, url: colleagues_path do |f| %>
+  <%= f.label :first_name_cont %>
+  <%= f.search_field :first_name_cont %>
+  
+  <br/>
+  
+  <%= f.label :bio_or_need_help_or_interested_in_cont, "Interests" %>
+  <%= f.search_field :bio_or_need_help_or_interested_in_cont %>
+
+  <br/>
+
+  <%= f.submit %>
+<% end %>
+
+<hr>
+
+<div id="colleagues">
+  <% @people.each do |person| %>
+    <p><%= person.last_name %>, <%= person.first_name %></p>
+  <% end %>
+</div>
