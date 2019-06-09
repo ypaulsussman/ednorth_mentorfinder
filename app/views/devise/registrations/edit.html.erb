@@ -1,16 +1,56 @@
+
+<%
+=begin%>
+ <%= link_to "Back", :back %> 
+<%
+=end%>
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+   <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div> 
+
+   <div class="field">
+    <%= f.label :bio, "What have you been up to lately?" %><br />
+    <%= f.text_field :bio %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :interested_in, "What are you interested in?" %><br />
+    <%= f.text_field :interested_in %>
+  </div> 
+
+   <div class="field">
+    <%= f.label :can_help, "What can you help others with?" %><br />
+    <%= f.text_field :can_help %>
+  </div> 
+
+   <div class="field">
+    <%= f.label :need_help, "What are you looking for help with?" %><br />
+    <%= f.text_field :need_help %>
+  </div> 
+
+
+  <hr>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -36,8 +76,10 @@
   </div>
 <% end %>
 
+
+<hr>
+  
+
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
